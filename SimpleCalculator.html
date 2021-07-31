@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang ="en">
+	<head>
+		<style>
+	.main {
+  		padding: 400px;
+  		border: 3px solid rgb(0, 255, 0);
+	}
+		</style>
+
+		<title>
+			Simple Calculator
+		</title>
+	</head>
+	<body style="text-align: center;">
+	<div class="main">
+		<p>Calculator</p>
+		<button onclick="calculate('+')">+</button>
+		<p><button onclick="calculate('-')">-</button></p>
+		<input autocomplete="off" autofocus id="number1" placeholder="Enter first number here" type="number">
+		<button onclick="calculate('*')">*</button>
+		<input autocomplete="off" autofocus id="number2" placeholder="Enter second number here" type="number">
+		<p><button onclick="calculate('/')">/</button></p>
+		<p><button onclick="calculate('^')">^</button></p>
+
+		<p id="result">The Answer is...</p>
+		
+		<script>
+			function calculate(type){
+				let number1 = document.querySelector('#number1').value;
+				let number2 = document.querySelector('#number2').value;
+				let answer = 0;
+				if(type == '+'){
+					answer = parseInt(number1, 10) + parseInt(number2, 10);
+				}else if (type == '-'){
+					answer = parseInt(number1, 10) - parseInt(number2, 10);
+				}else if (type == '*'){
+					answer = parseInt(number1, 10) * parseInt(number2, 10);
+				}else if (type == '/'){
+					answer = parseInt(number1, 10) / parseInt(number2, 10);
+				}else if (type == '^'){
+					answer = parseInt(number1, 10) ** parseInt(number2, 10);
+				}
+
+				if(number1 == "" || number2 == ""){
+					document.getElementById('result').innerHTML = 'ERROR: Please make sure you have entered valid numbers';
+				}else{
+					document.getElementById('result').innerHTML = 'The Answer is: '+ answer;
+				}
+				
+			}
+			
+		</script>
+	</div>
+		
+
+
+	</body>
+</html>
